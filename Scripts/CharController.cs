@@ -5,6 +5,7 @@ public class CharController : MonoBehaviour {
 	public static float rotateCount;
 	public static bool positiveRotation = false;
 	public float mouseSpeed;
+	public float verticalLook;
 
 	public GameObject camera;
 	public Vector3 turn;
@@ -35,7 +36,7 @@ public class CharController : MonoBehaviour {
 		}
 
 		if(Input.GetButtonDown("Jump")){
-			rigid.AddForce(new Vector3(0, jumpPower, 0));
+			rigid.AddRelativeForce(new Vector3(0, jumpPower, 0));
 		}
 
 		rigid.AddRelativeForce(movementAxis.normalized * movementSpeed);
@@ -44,16 +45,21 @@ public class CharController : MonoBehaviour {
 			turnAxis.x = Input.GetAxis("Mouse X");
 			playerRotation += turnAxis.x;
 		}
-		//Debug.Log(playerRotation);
-		//Debug.Log(turnAxis.x);
+		if(turnAxis.x > 0){
+			positiveRotation = true;
+		} else if(turnAxis.x < 0){
+			positiveRotation = false;
+		}
+		this.transform.Rotate(0, turnAxis.x, 0);
 
 		if(Input.GetAxis("Mouse Y") != 0){
 			turnAxis.y = Input.GetAxis("Mouse Y");
 		}
+		verticalLook += turnAxis.y;
+		verticalLook = Mathf.Clamp(verticalLook, -playerVerticalLookAngle, playerVerticalLookAngle);
 
-		this.transform.Rotate(new Vector3(0, turnAxis.x, 0));
-
-		this.camera.transform.Rotate(new Vector3(turnAxis.y, 0, 0));
+		float look = 360+verticalLook;
+		this.camera.transform.eulerAngles = this.transform.eulerAngles + new Vector3(look, 0, 0);
 		turn = turnAxis;
 	}
 }
