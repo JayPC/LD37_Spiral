@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InteractWith : MonoBehaviour {
-
+	public string interafaceSignalName;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,7 +16,7 @@ public class InteractWith : MonoBehaviour {
 	public void Interact(){
 		Debug.Log("Interacting!");
 
-
+		this.SendMessage(interafaceSignalName, SendMessageOptions.DontRequireReceiver);
 		//Play Sound 
 		
 		//Trigger Animation

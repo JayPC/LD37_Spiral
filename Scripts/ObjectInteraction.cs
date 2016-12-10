@@ -5,6 +5,7 @@ public class ObjectInteraction : MonoBehaviour {
 	public GameObject caryPoint; //These must be linked in the Editor
 	public Camera camera; //These must be linked in the Editor
 	public GameObject caryObject;
+	public float moveForce = 100;
 	// Use this for initialization
 	void Start () {
 		
@@ -37,20 +38,32 @@ public class ObjectInteraction : MonoBehaviour {
 						if(hits[i].transform.tag=="PuzzlePiece"){
 							if(hits[i].transform.gameObject.GetComponent<MeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<MeshRenderer>().enabled == true){
 								caryObject = hits[i].transform.gameObject;
+								
 							}
 						}
 					}
 				}
-				
 			}
 		}
 
 		if(Input.GetMouseButtonUp(0)){
+			if(caryObject != null){
+				caryObject.GetComponent<Rigidbody>().drag = 0;
+			}
 			caryObject = null;
 		}
 
 		if(caryObject != null){
-			caryObject.transform.position = caryPoint.transform.position;
+			Vector3 directionVector = caryPoint.transform.position - caryObject.transform.position; //Get me the direction to move in.
+			if(caryObject.GetComponent<Rigidbody>() != null){
+				Debug.Log("Rigidbody Found");
+				if(Vector3.Distance(caryObject.transform.position,  caryPoint.transform.position) >= 0.1f){
+					caryObject.GetComponent<Rigidbody>().AddForce(directionVector * moveForce);
+					caryObject.GetComponent<Rigidbody>().drag = 5;
+				} else {
+					caryObject.GetComponent<Rigidbody>().velocity = new Vector3();
+				}
+			}
 		}
 
 
@@ -60,14 +73,26 @@ public class ObjectInteraction : MonoBehaviour {
 		//****************************
 		//  Interact With Object
 		//****************************
-		if(Input.GetMouseButtonDown(0)){
-			Ray ray = new Ray (camera.transform.position, (camera.transform.position) *10);
-			RaycastHit hit;
+		// if(Input.GetMouseButtonDown(0)){
+		// 	Ray ray = new Ray (camera.transform.position, (camera.transform.position) *10);
+		// 	RaycastHit hit;
 
-			if(Physics.Raycast (camera.transform.position, camera.transform.forward, out hit, 10)){
-				Debug.DrawLine(ray.origin, hit.point, Color.red);
-				if(hit.transform.gameObject.tag == "InteractObject"){
-					hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+		// 	if(Physics.Raycast (camera.transform.position, camera.transform.forward, out hit, 10)){
+		// 		Debug.DrawLine(ray.origin, hit.point, Color.red);
+		// 		if(hit.transform.gameObject.tag == "InteractObject"){
+		// 			Debug.Log("Interacting with: " + hit.transform.gameObject.name);
+		// 			hit.transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+		// 		}
+		// 	}
+		// }
+
+		if(Input.GetMouseButtonDown(0)){
+			var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 6);
+			if(hits.Length > 0){
+				for(var i=0;i<=hits.Length-1;i++){
+					if(hits[i].transform.tag=="InteractObject"){
+						hits[i].transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+					}
 				}
 			}
 		}
