@@ -65,10 +65,6 @@ public class ObjectInteraction : MonoBehaviour {
 				}
 			}
 		}
-
-
-
-
 		
 		//****************************
 		//  Interact With Object
@@ -90,7 +86,7 @@ public class ObjectInteraction : MonoBehaviour {
 			var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 6);
 			if(hits.Length > 0){
 				for(var i=0;i<=hits.Length-1;i++){
-					if(hits[i].transform.tag=="InteractObject"){
+					if(hits[i].transform.tag=="InteractObject" || hits[i].transform.tag=="Carryable"){
 						hits[i].transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 					}
 				}
