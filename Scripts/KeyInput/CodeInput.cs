@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CodeInput : MonoBehaviour {
 	public string puzzleName = "";
 	public string password = "";
 	public string currentPassword = "";
+
+	public GameObject FloatingText;
+	public GameObject nextKeypad;
 	// Use this for initialization
 	void Start () {
 		CheckWinState.puzzlePieces.Add(puzzleName, false);
@@ -12,7 +16,7 @@ public class CodeInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(CheckWinState.keyboardCodePuzzleCompleted == false){
+		if(CheckWinState.puzzlePieces[puzzleName] == false){
 			if(currentPassword == password){
 				//Display something to show you completed the puzzle
 				CheckWinState.puzzlePieces[puzzleName] = true;
@@ -21,17 +25,44 @@ public class CodeInput : MonoBehaviour {
 				currentPassword = "";
 			}
 		}
+
+		if(FloatingText != null){
+			Debug.Log("NotNull");
+			TextMesh t = FloatingText.GetComponent<TextMesh>();
+			if(t != null){
+				Debug.Log("SettingStuff");
+				t.text = currentPassword;
+			}
+		}
 	}
 
 	public void KeyInput(string input){
-		currentPassword += input;
+		if(CheckWinState.puzzlePieces[puzzleName] == true){
+			if(nextKeypad != null){
+				nextKeypad.SendMessage("KeyInput", input, SendMessageOptions.DontRequireReceiver);
+			}
+		} else {
+			currentPassword += input;
+		}
 	}
 
 	public void PopKey(){
-		currentPassword = currentPassword.Substring(currentPassword.Length - 1);
+		if(CheckWinState.puzzlePieces[puzzleName] == true){
+			if(nextKeypad != null){
+				nextKeypad.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
+			}
+		} else {
+			currentPassword = currentPassword.Substring(currentPassword.Length - 1);
+		}
 	}
 
 	public void ResetPassword(){
-		currentPassword = "";
+		if(CheckWinState.puzzlePieces[puzzleName] == true){
+			if(nextKeypad != null){
+				nextKeypad.SendMessage("ResetPassword", SendMessageOptions.DontRequireReceiver);
+			}
+		} else {
+			currentPassword = "";
+		}
 	}
 }

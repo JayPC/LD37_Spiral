@@ -16,7 +16,8 @@ public class EnterKey : MonoBehaviour {
 	
 	}
 
-	public void Interact(){
+	public void KeyPressed(){
+		Debug.Log("Key On Keyboard  Pressed");
 		if(isDeleteKey){
 			keyEntryReference.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
 		} else if(isResetKey){

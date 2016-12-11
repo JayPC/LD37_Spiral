@@ -1,78 +1,74 @@
 fileFormatVersion: 2
-guid: 1988b1cfeb0c85b4ca6bd0f012c9c6ec
-timeCreated: 1481483008
+guid: 3b30747b04cb93c43b716373bc50ab55
+timeCreated: 1481472516
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: BezierCurve
     100002: BezierCurve_001
-    100004: Cone_002
-    100006: Cylinder
-    100008: Cylinder_001
-    100010: Cylinder_002
-    100012: Icosphere
-    100014: Sphere
-    100016: Sphere_001
-    100018: Spiral_000
-    100020: //RootNode
-    100022: Torus
-    100024: Torus_001
-    100026: Cone_000
-    100028: Cone_001
-    100030: Cone_003
-    100032: Cone_004
-    100034: Empty
+    100004: Cone
+    100006: Cone_001
+    100008: Cone_002
+    100010: Cone_003
+    100012: Cylinder
+    100014: Cylinder_001
+    100016: Cylinder_002
+    100018: Icosphere
+    100020: Sphere
+    100022: Sphere_001
+    100024: //RootNode
+    100026: Torus
+    100028: Torus_001
+    100030: Spiral_000
     400000: BezierCurve
     400002: BezierCurve_001
-    400004: Cone_002
-    400006: Cylinder
-    400008: Cylinder_001
-    400010: Cylinder_002
-    400012: Icosphere
-    400014: Sphere
-    400016: Sphere_001
-    400018: Spiral_000
-    400020: //RootNode
-    400022: Torus
-    400024: Torus_001
-    400026: Cone_000
-    400028: Cone_001
-    400030: Cone_003
-    400032: Cone_004
-    400034: Empty
+    400004: Cone
+    400006: Cone_001
+    400008: Cone_002
+    400010: Cone_003
+    400012: Cylinder
+    400014: Cylinder_001
+    400016: Cylinder_002
+    400018: Icosphere
+    400020: Sphere
+    400022: Sphere_001
+    400024: //RootNode
+    400026: Torus
+    400028: Torus_001
+    400030: Spiral_000
     2300000: BezierCurve
     2300002: BezierCurve_001
-    2300004: Cone_002
-    2300006: Cylinder
-    2300008: Cylinder_001
-    2300010: Cylinder_002
-    2300012: Sphere
-    2300014: Sphere_001
-    2300016: Spiral_000
-    2300018: Torus
-    2300020: Torus_001
-    2300022: Cone_000
-    2300024: Cone_001
-    2300026: Cone_003
-    2300028: Cone_004
+    2300004: Cone
+    2300006: Cone_001
+    2300008: Cone_002
+    2300010: Cone_003
+    2300012: Cylinder
+    2300014: Cylinder_001
+    2300016: Cylinder_002
+    2300018: Icosphere
+    2300020: Sphere
+    2300022: Sphere_001
+    2300024: Torus
+    2300026: Torus_001
+    2300028: Spiral_000
     3300000: BezierCurve
     3300002: BezierCurve_001
-    3300004: Cone_002
-    3300006: Cylinder
-    3300008: Cylinder_001
-    3300010: Cylinder_002
-    3300012: Sphere
-    3300014: Sphere_001
-    3300016: Spiral_000
-    3300018: Torus
-    3300020: Torus_001
-    3300022: Cone_000
-    3300024: Cone_001
-    3300026: Cone_003
-    3300028: Cone_004
-    4300000: Spiral_000
-    4300002: Torus
+    3300004: Cone
+    3300006: Cone_001
+    3300008: Cone_002
+    3300010: Cone_003
+    3300012: Cylinder
+    3300014: Cylinder_001
+    3300016: Cylinder_002
+    3300018: Icosphere
+    3300020: Sphere
+    3300022: Sphere_001
+    3300024: Torus
+    3300026: Torus_001
+    3300028: Spiral_000
+    4300000: Torus
+    4300002: Cone
     4300004: Icosphere
     4300006: Cylinder_002
     4300008: BezierCurve
@@ -81,12 +77,23 @@ ModelImporter:
     4300014: Cylinder
     4300016: Sphere_001
     4300018: BezierCurve_001
-    4300020: Cone_002
-    4300022: Torus_001
-    4300024: Cone_004
-    4300026: Cone_003
-    4300028: Cone_001
-    4300030: Cone_000
+    4300020: Cone_001
+    4300022: Cone_002
+    4300024: Cone_003
+    4300026: Torus_001
+    4300028: Spiral_000
+    6400000: BezierCurve
+    6400002: BezierCurve_001
+    6400004: Cone_002
+    6400006: Cylinder
+    6400008: Cylinder_001
+    6400010: Cylinder_002
+    6400012: Icosphere
+    6400014: Sphere
+    6400016: Sphere_001
+    6400018: Spiral_000
+    6400020: Torus
+    6400022: Torus_001
     7400000: Default Take
     9500000: //RootNode
     13700000: Icosphere
@@ -134,14 +141,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0
-        functionName: NewEvent
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1
@@ -156,16 +156,6 @@ ModelImporter:
       - path: Cylinder_001
         weight: 1
       - path: Cylinder_002
-        weight: 1
-      - path: Empty
-        weight: 1
-      - path: Empty/Cone_000
-        weight: 1
-      - path: Empty/Cone_001
-        weight: 1
-      - path: Empty/Cone_003
-        weight: 1
-      - path: Empty/Cone_004
         weight: 1
       - path: Icosphere
         weight: 1
@@ -187,7 +177,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -195,13 +185,13 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
-    secondaryUVHardAngle: 88
+    secondaryUVAngleDistortion: 10
+    secondaryUVAreaDistortion: 20
+    secondaryUVHardAngle: 180
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 20
     normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 1
