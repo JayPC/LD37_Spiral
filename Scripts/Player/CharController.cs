@@ -7,6 +7,7 @@ public class CharController : MonoBehaviour {
 	public float mouseSpeedX = 10;
 	public float mouseSpeedY = 3;
 	public float verticalLook;
+	public bool inverted = false;
 
 	public GameObject camera;
 	public Vector3 turn;
@@ -59,7 +60,11 @@ public class CharController : MonoBehaviour {
 			if(Input.GetAxis("Mouse Y") != 0){
 				turnAxis.y = Input.GetAxis("Mouse Y");
 			}
-			verticalLook += turnAxis.y * mouseSpeedY;
+			if(inverted){
+				verticalLook += turnAxis.y * mouseSpeedY;
+			} else {
+				verticalLook -= turnAxis.y * mouseSpeedY;
+			}
 			verticalLook = Mathf.Clamp(verticalLook, -playerVerticalLookAngle, playerVerticalLookAngle);
 
 			float look = 360+verticalLook;
