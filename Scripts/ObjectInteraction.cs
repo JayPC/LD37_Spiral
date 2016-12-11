@@ -35,10 +35,10 @@ public class ObjectInteraction : MonoBehaviour {
 				var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 6);
 				if(hits.Length > 0){
 					for(var i=0;i<=hits.Length-1;i++){
-						if(hits[i].transform.tag=="PuzzlePiece"){
+						if(hits[i].transform.tag == "PuzzlePiece"){
+							Debug.Log("Name: " + hits[i].transform.name);
 							if(hits[i].transform.gameObject.GetComponent<MeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<MeshRenderer>().enabled == true){
 								caryObject = hits[i].transform.gameObject;
-								
 							}
 						}
 					}
@@ -46,17 +46,10 @@ public class ObjectInteraction : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetMouseButtonUp(0)){
-			if(caryObject != null){
-				caryObject.GetComponent<Rigidbody>().drag = 0;
-			}
-			caryObject = null;
-		}
-
 		if(caryObject != null){
 			Vector3 directionVector = caryPoint.transform.position - caryObject.transform.position; //Get me the direction to move in.
 			if(caryObject.GetComponent<Rigidbody>() != null){
-				Debug.Log("Rigidbody Found");
+				//Debug.Log("Rigidbody Found");
 				if(Vector3.Distance(caryObject.transform.position,  caryPoint.transform.position) >= 0.1f){
 					caryObject.GetComponent<Rigidbody>().AddForce(directionVector * moveForce);
 					caryObject.GetComponent<Rigidbody>().drag = 5;
@@ -64,6 +57,15 @@ public class ObjectInteraction : MonoBehaviour {
 					caryObject.GetComponent<Rigidbody>().velocity = new Vector3();
 				}
 			}
+		}
+
+		if(Input.GetMouseButtonUp(0)){
+			if(caryObject != null){
+				if(caryObject.GetComponent<Rigidbody>() != null){
+					caryObject.GetComponent<Rigidbody>().drag = 0;
+				}
+			}
+			caryObject = null;
 		}
 		
 		//****************************
@@ -86,12 +88,9 @@ public class ObjectInteraction : MonoBehaviour {
 			var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 6);
 			if(hits.Length > 0){
 				for(var i=0;i<=hits.Length-1;i++){
-					if(hits[i].transform.tag=="InteractObject" || hits[i].transform.tag=="Carryable"){
-						hits[i].transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
-					}
+					hits[i].transform.gameObject.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
 				}
 			}
 		}
-		
 	}
 }
