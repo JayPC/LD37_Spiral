@@ -10572,7 +10572,8 @@ MonoBehaviour:
   move: {x: 0, y: 0, z: 0}
   movementSpeed: 40
   maxVelocity: 5
-  jumpPower: 300
+  brakeMult: 0.8
+  jumpPower: 200
   playerVerticalLookAngle: 65
 --- !u!23 &1678003456
 MeshRenderer:
@@ -10637,6 +10638,7 @@ Transform:
   - {fileID: 37305050}
   - {fileID: 872282027}
   - {fileID: 894438570}
+  - {fileID: 2017593213}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!54 &1678003460
@@ -10647,7 +10649,7 @@ Rigidbody:
   m_GameObject: {fileID: 1678003454}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -12881,6 +12883,59 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81482225d4d95084c82f5c22ebf89d25, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2017593212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2017593213}
+  - 65: {fileID: 2017593215}
+  - 114: {fileID: 2017593214}
+  m_Layer: 0
+  m_Name: GroundedPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2017593213
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017593212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1678003459}
+  m_RootOrder: 3
+--- !u!114 &2017593214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017593212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79be545f3b00a3345bb55d2b08f46d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2017593215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017593212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2018531002
 Prefab:
   m_ObjectHideFlags: 0
