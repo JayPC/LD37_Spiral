@@ -16,7 +16,7 @@ public class CharController : MonoBehaviour {
 	float playerRotation = 0;
 	public float playerVerticalLookAngle = 60;
 
-	public bool blockInput = false;
+	public static bool blockInput = false;
 
 	// Use this for initialization
 	void Start () {

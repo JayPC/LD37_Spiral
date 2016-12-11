@@ -11,6 +11,7 @@ public class ButtonControls : MonoBehaviour {
 	public bool locked;
 	public bool startingMachine;
 	public float machineStartupDelay = 5;
+	public float triggerExplosionDelay = 5;
 	public float buttonAnimation = 0;
 	public float buttonAnimationSpeed = 10;
 	public float buttonAnimationMax = 100;
@@ -18,6 +19,10 @@ public class ButtonControls : MonoBehaviour {
 	public bool buttonAnimationReverse;
 
 	public bool triggerExplosion;
+
+	public float redShiftTime = 0;
+
+	public GameObject[] WarningObjects;
 	// Use this for initialization
 	void Start () {
 		animator = this.GetComponent<Animator>();
@@ -36,10 +41,16 @@ public class ButtonControls : MonoBehaviour {
 				if(nextButton != null){
 					nextButton.SendMessage("OpenButtonCover", SendMessageOptions.DontRequireReceiver);
 				}
-				if(triggerExplosion){
-					PlayerReference.SendMessage("StartExplosion", SendMessageOptions.DontRequireReceiver);
-				}
 				startingMachine = false;
+			}
+		} else if(triggerExplosion && machineStartupDelay <= 0){
+			Debug.Log("Awaiting Explosion");
+			if(triggerExplosionDelay <= 0){
+				SetOffAlarm();
+				PlayerReference.SendMessage("StartExplosion", this.gameObject, SendMessageOptions.DontRequireReceiver);
+			} else {
+				triggerExplosionDelay -= Time.deltaTime;
+				SetOffAlarm();
 			}
 		}
 
@@ -67,5 +78,20 @@ public class ButtonControls : MonoBehaviour {
 	public void PressButton(){
 		buttonAnimationPlaying = true;
 		//targetInteract.SendMessage("Interact", SendMessageOptions.DontRequireReceiver);
+	}
+
+	private void SetOffAlarm(){
+		foreach (GameObject go in WarningObjects)
+		{
+			if(go.tag == "WarningLight"){
+				Light l = go.GetComponent<Light>();
+				Color temp = l.color;
+				redShiftTime += Time.deltaTime*5;
+				temp.r = 1+Mathf.Sin(redShiftTime)*10;
+				temp.g = 0;
+				temp.b = 0;
+				l.color = temp;
+			}
+		}
 	}
 }
