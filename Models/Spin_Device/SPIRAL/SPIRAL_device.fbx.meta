@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 210122b0bf3d2e847b2b18ebedb39d63
+timeCreated: 1481472515
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BezierCurve
+    100002: BezierCurve.001
+    100004: Camera
+    100006: Cone
+    100008: Cone.001
+    100010: Cone.002
+    100012: Cone.003
+    100014: Cylinder
+    100016: Cylinder.001
+    100018: Cylinder.002
+    100020: Icosphere
+    100022: Lamp
+    100024: Sphere
+    100026: Sphere.001
+    100028: //RootNode
+    100030: Torus
+    100032: Torus.001
+    400000: BezierCurve
+    400002: BezierCurve.001
+    400004: Camera
+    400006: Cone
+    400008: Cone.001
+    400010: Cone.002
+    400012: Cone.003
+    400014: Cylinder
+    400016: Cylinder.001
+    400018: Cylinder.002
+    400020: Icosphere
+    400022: Lamp
+    400024: Sphere
+    400026: Sphere.001
+    400028: //RootNode
+    400030: Torus
+    400032: Torus.001
+    2300000: BezierCurve
+    2300002: BezierCurve.001
+    2300004: Cone
+    2300006: Cone.001
+    2300008: Cone.002
+    2300010: Cone.003
+    2300012: Cylinder
+    2300014: Cylinder.001
+    2300016: Cylinder.002
+    2300018: Icosphere
+    2300020: Sphere
+    2300022: Sphere.001
+    2300024: Torus
+    2300026: Torus.001
+    3300000: BezierCurve
+    3300002: BezierCurve.001
+    3300004: Cone
+    3300006: Cone.001
+    3300008: Cone.002
+    3300010: Cone.003
+    3300012: Cylinder
+    3300014: Cylinder.001
+    3300016: Cylinder.002
+    3300018: Icosphere
+    3300020: Sphere
+    3300022: Sphere.001
+    3300024: Torus
+    3300026: Torus.001
+    4300000: Torus
+    4300002: Cone
+    4300004: Icosphere
+    4300006: Cylinder.002
+    4300008: BezierCurve
+    4300010: Sphere
+    4300012: Cylinder.001
+    4300014: Cylinder
+    4300016: Sphere.001
+    4300018: BezierCurve.001
+    4300020: Cone.001
+    4300022: Cone.002
+    4300024: Cone.003
+    4300026: Torus.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
