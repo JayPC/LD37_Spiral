@@ -10563,7 +10563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59289ae4d125269469bcac6437dc4714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSpeed: 0
+  mouseSpeedX: 50
+  mouseSpeedY: 3
   verticalLook: 0
   camera: {fileID: 37305049}
   turn: {x: 0, y: 0, z: 0}

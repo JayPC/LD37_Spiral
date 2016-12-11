@@ -4,7 +4,8 @@ using System.Collections;
 public class CharController : MonoBehaviour {
 	public static float rotateCount;
 	public static bool positiveRotation = false;
-	public float mouseSpeed;
+	public float mouseSpeedX = 10;
+	public float mouseSpeedY = 3;
 	public float verticalLook;
 
 	public GameObject camera;
@@ -46,7 +47,7 @@ public class CharController : MonoBehaviour {
 
 			if(Input.GetAxis("Mouse X") != 0){
 				turnAxis.x = Input.GetAxis("Mouse X");
-				playerRotation += turnAxis.x;
+				playerRotation += turnAxis.x * mouseSpeedX;
 			}
 			if(turnAxis.x > 0){
 				positiveRotation = true;
@@ -58,7 +59,7 @@ public class CharController : MonoBehaviour {
 			if(Input.GetAxis("Mouse Y") != 0){
 				turnAxis.y = Input.GetAxis("Mouse Y");
 			}
-			verticalLook += turnAxis.y;
+			verticalLook += turnAxis.y * mouseSpeedY;
 			verticalLook = Mathf.Clamp(verticalLook, -playerVerticalLookAngle, playerVerticalLookAngle);
 
 			float look = 360+verticalLook;
