@@ -5,7 +5,7 @@ public class ObjectInteraction : MonoBehaviour {
 	public GameObject caryPoint; //These must be linked in the Editor
 	public Camera camera; //These must be linked in the Editor
 	public GameObject caryObject;
-	public float moveForce = 300;
+	public float moveForce = 100;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,11 +32,11 @@ public class ObjectInteraction : MonoBehaviour {
 			Cursor.lockState = CursorLockMode.Locked;
 			if(caryObject == null){
 				//If we're not carying anything and hitting something
-				var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 6);
+				var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 2);
 				if(hits.Length > 0){
 					for(var i=0;i<=hits.Length-1;i++){
 						if(hits[i].transform.tag == "PuzzlePiece" || hits[i].transform.tag == "Carryable"){
-							Debug.Log("Name: " + hits[i].transform.name);
+							//Debug.Log("Name: " + hits[i].transform.name);
 							if(hits[i].transform.gameObject.GetComponent<MeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<MeshRenderer>().enabled == true){
 								caryObject = hits[i].transform.gameObject;
 							}
@@ -50,7 +50,7 @@ public class ObjectInteraction : MonoBehaviour {
 			Vector3 directionVector = caryPoint.transform.position - caryObject.transform.position; //Get me the direction to move in.
 			if(caryObject.GetComponent<Rigidbody>() != null){
 				//Debug.Log("Rigidbody Found");
-				if(Vector3.Distance(caryObject.transform.position,  caryPoint.transform.position) >= 0.2f){
+				if(Vector3.Distance(caryObject.transform.position,  caryPoint.transform.position) > 0f){
 					caryObject.GetComponent<Rigidbody>().AddForce(directionVector * moveForce);
 					caryObject.GetComponent<Rigidbody>().drag = 10;
 				} else {

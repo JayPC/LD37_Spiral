@@ -13,12 +13,15 @@ public class CharController : MonoBehaviour {
 	public Vector3 turn;
 	public Vector3 move;
 	public float movementSpeed = 10;
+	public float maxVelocity = 20;
+	public float brakeMult = 0.8f;
 	public float jumpPower = 50;
 	Rigidbody rigid;
 	float playerRotation = 0;
 	public float playerVerticalLookAngle = 60;
 
 	public static bool blockInput = false;
+	public static bool isGrounded = true;
 
 	// Use this for initialization
 	void Start () {
@@ -41,8 +44,32 @@ public class CharController : MonoBehaviour {
 				movementAxis.z = Input.GetAxis("Vertical");
 			}
 
-			if(Input.GetButtonDown("Jump")){
+			if(Input.GetButtonDown("Jump") && isGrounded){
 				rigid.AddRelativeForce(new Vector3(0, jumpPower, 0));
+				isGrounded = false;
+			}
+			// var hit = Physics.Raycast(this.transform.position, -this.transform.up, 1.1f);
+			// if(Physics.Raycast(this.transform.position, -this.transform.up, 1.1f)){
+			// 	Debug.DrawRay(this.transform.position, -this.transform.up * 1.1f, Color.green);
+			// 	isGrounded = true;
+			// } else {
+			// 	isGrounded = false;
+			// 	Debug.DrawRay(this.transform.position, -this.transform.up * 1.1f, Color.red);
+			// }
+			if(movementAxis.magnitude <= 0.2f){
+				rigid.velocity = new Vector3(rigid.velocity.x * brakeMult, rigid.velocity.y, rigid.velocity.z * brakeMult);
+			}
+
+			if(rigid.velocity.x >= maxVelocity){
+				rigid.velocity = new Vector3(maxVelocity, rigid.velocity.y, rigid.velocity.z);
+			} else if(rigid.velocity.x <= -maxVelocity){
+				rigid.velocity = new Vector3(-maxVelocity, rigid.velocity.y, rigid.velocity.z);
+			}
+
+			if(rigid.velocity.z >= maxVelocity){
+				rigid.velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, maxVelocity);
+			} else if(rigid.velocity.z <= -maxVelocity){
+				rigid.velocity = new Vector3(rigid.velocity.x, rigid.velocity.y, -maxVelocity);
 			}
 
 			rigid.AddRelativeForce(movementAxis.normalized * movementSpeed);
