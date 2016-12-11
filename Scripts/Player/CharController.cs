@@ -30,7 +30,8 @@ public class CharController : MonoBehaviour {
 		if(!blockInput){
 			Vector3 movementAxis = new Vector3();
 			Vector3 turnAxis = new Vector3();
-			
+			mouseSpeedX = Mathf.Clamp(mouseSpeedX, 1, 10);
+			mouseSpeedY = Mathf.Clamp(mouseSpeedY, 1, 10);
 
 			if(Input.GetAxis("Horizontal") != 0){
 				movementAxis.x = Input.GetAxis("Horizontal");
@@ -47,8 +48,8 @@ public class CharController : MonoBehaviour {
 			rigid.AddRelativeForce(movementAxis.normalized * movementSpeed);
 
 			if(Input.GetAxis("Mouse X") != 0){
-				turnAxis.x = Input.GetAxis("Mouse X");
-				playerRotation += turnAxis.x * mouseSpeedX;
+				turnAxis.x = Input.GetAxis("Mouse X") * mouseSpeedX;
+				playerRotation += turnAxis.x;
 			}
 			if(turnAxis.x > 0){
 				positiveRotation = true;

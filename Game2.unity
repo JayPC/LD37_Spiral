@@ -10563,9 +10563,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59289ae4d125269469bcac6437dc4714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSpeedX: 50
-  mouseSpeedY: 3
+  mouseSpeedX: 5
+  mouseSpeedY: 5
   verticalLook: 0
+  inverted: 1
   camera: {fileID: 37305049}
   turn: {x: 0, y: 0, z: 0}
   move: {x: 0, y: 0, z: 0}
@@ -10666,7 +10667,7 @@ MonoBehaviour:
   caryPoint: {fileID: 527228937}
   camera: {fileID: 37305054}
   caryObject: {fileID: 0}
-  moveForce: 100
+  moveForce: 300
 --- !u!114 &1678003462
 MonoBehaviour:
   m_ObjectHideFlags: 0

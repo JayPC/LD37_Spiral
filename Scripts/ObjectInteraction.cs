@@ -5,7 +5,7 @@ public class ObjectInteraction : MonoBehaviour {
 	public GameObject caryPoint; //These must be linked in the Editor
 	public Camera camera; //These must be linked in the Editor
 	public GameObject caryObject;
-	public float moveForce = 100;
+	public float moveForce = 300;
 	// Use this for initialization
 	void Start () {
 		
@@ -50,9 +50,9 @@ public class ObjectInteraction : MonoBehaviour {
 			Vector3 directionVector = caryPoint.transform.position - caryObject.transform.position; //Get me the direction to move in.
 			if(caryObject.GetComponent<Rigidbody>() != null){
 				//Debug.Log("Rigidbody Found");
-				if(Vector3.Distance(caryObject.transform.position,  caryPoint.transform.position) >= 0.1f){
+				if(Vector3.Distance(caryObject.transform.position,  caryPoint.transform.position) >= 0.2f){
 					caryObject.GetComponent<Rigidbody>().AddForce(directionVector * moveForce);
-					caryObject.GetComponent<Rigidbody>().drag = 5;
+					caryObject.GetComponent<Rigidbody>().drag = 10;
 				} else {
 					caryObject.GetComponent<Rigidbody>().velocity = new Vector3();
 				}
