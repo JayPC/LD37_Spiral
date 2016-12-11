@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class KeyHole : MonoBehaviour {
+	public string keyName = "";
 	public string targetKeyName;
 	public Vector3 setPositionOffset;
 	public Quaternion setRotation;
 	// Use this for initialization
 	void Start () {
-	
+		CheckWinState.puzzlePieces.Add(keyName, false);
 	}
 	
 	// Update is called once per frame

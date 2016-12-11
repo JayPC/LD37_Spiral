@@ -35,7 +35,7 @@ public class ObjectInteraction : MonoBehaviour {
 				var hits = Physics.RaycastAll (camera.transform.position, camera.transform.forward, 6);
 				if(hits.Length > 0){
 					for(var i=0;i<=hits.Length-1;i++){
-						if(hits[i].transform.tag == "PuzzlePiece"){
+						if(hits[i].transform.tag == "PuzzlePiece" || hits[i].transform.tag == "Carryable"){
 							Debug.Log("Name: " + hits[i].transform.name);
 							if(hits[i].transform.gameObject.GetComponent<MeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<MeshRenderer>().enabled == true){
 								caryObject = hits[i].transform.gameObject;
