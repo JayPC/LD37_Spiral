@@ -9,6 +9,11 @@ public class CodeInput : MonoBehaviour {
 	public bool correctPassword;
 	public GameObject FloatingText;
 	public GameObject nextKeypad;
+	public bool isFinalCode;
+	public bool audioPlayed;
+	public string audioClipToPlay;
+
+
 	// Use this for initialization
 	void Start () {
 		CheckWinState.puzzlePieces.Add(puzzleName, false);
@@ -34,6 +39,10 @@ public class CodeInput : MonoBehaviour {
 				//Debug.Log("SettingStuff");
 				t.text = currentPassword;
 			}
+		}
+		if(isFinalCode && !audioPlayed && CheckWinState.puzzlePieces[puzzleName] == true){
+			Narator.playAudio(audioClipToPlay);
+			audioPlayed = true;
 		}
 	}
 

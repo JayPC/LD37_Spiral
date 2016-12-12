@@ -6,6 +6,9 @@ public class ObjectInteraction : MonoBehaviour {
 	public Camera camera; //These must be linked in the Editor
 	public GameObject caryObject;
 	public float moveForce = 100;
+
+	public static bool dropIt = false;
+	public bool dropItTest = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,7 +31,7 @@ public class ObjectInteraction : MonoBehaviour {
 		//******************
 		//  Pickup Object
 		//******************
-		if(Input.GetMouseButton(0) && caryObject == null){
+		if(Input.GetMouseButtonDown(0) && caryObject == null){
 			Cursor.lockState = CursorLockMode.Locked;
 			if(caryObject == null){
 				//If we're not carying anything and hitting something
@@ -59,6 +62,7 @@ public class ObjectInteraction : MonoBehaviour {
 			}
 		}
 
+		dropItTest = ObjectInteraction.dropIt;
 		if(Input.GetMouseButtonUp(0)){
 			if(caryObject != null){
 				if(caryObject.GetComponent<Rigidbody>() != null){
@@ -66,6 +70,15 @@ public class ObjectInteraction : MonoBehaviour {
 				}
 			}
 			caryObject = null;
+		}
+		if(dropIt){
+			if(caryObject != null){
+				if(caryObject.GetComponent<Rigidbody>() != null){
+					caryObject.GetComponent<Rigidbody>().drag = 0;
+				}
+			}
+			caryObject = null;
+			ObjectInteraction.dropIt = false;
 		}
 		
 		//****************************

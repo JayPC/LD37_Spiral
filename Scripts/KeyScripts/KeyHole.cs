@@ -9,6 +9,7 @@ public class KeyHole : MonoBehaviour {
 	public GameObject targetTrigger;
 	public string message;
 	public bool triggered;
+	public string audioFileToPlay;
 	// Use this for initialization
 	void Start () {
 		CheckWinState.puzzlePieces.Add(keyName, false);
@@ -27,6 +28,7 @@ public class KeyHole : MonoBehaviour {
 				other.gameObject.transform.position = this.transform.position + setPositionOffset;
 				other.gameObject.transform.rotation = this.transform.rotation;
 				targetTrigger.SendMessage(message, SendMessageOptions.DontRequireReceiver);
+				Narator.playAudio(audioFileToPlay);
 				triggered = true;
 			}
 		}
