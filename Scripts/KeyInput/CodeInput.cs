@@ -53,7 +53,7 @@ public class CodeInput : MonoBehaviour {
 				nextKeypad.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
 			}
 		} else {
-			currentPassword = currentPassword.Substring(currentPassword.Length - 1);
+			currentPassword = currentPassword.Substring(0, currentPassword.Length - 1);
 		}
 	}
 
