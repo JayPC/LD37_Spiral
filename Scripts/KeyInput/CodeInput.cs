@@ -6,7 +6,7 @@ public class CodeInput : MonoBehaviour {
 	public string puzzleName = "";
 	public string password = "";
 	public string currentPassword = "";
-
+	public bool correctPassword;
 	public GameObject FloatingText;
 	public GameObject nextKeypad;
 	// Use this for initialization
@@ -19,6 +19,7 @@ public class CodeInput : MonoBehaviour {
 		if(CheckWinState.puzzlePieces[puzzleName] == false){
 			if(currentPassword == password){
 				//Display something to show you completed the puzzle
+				correctPassword = true;
 				CheckWinState.puzzlePieces[puzzleName] = true;
 			} else if(currentPassword.Length > password.Length){
 				//error and redset
