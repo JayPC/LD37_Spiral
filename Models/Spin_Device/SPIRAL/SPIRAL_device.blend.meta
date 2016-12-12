@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 1988b1cfeb0c85b4ca6bd0f012c9c6ec
+timeCreated: 1481483008
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BezierCurve
+    100002: BezierCurve_001
+    100004: Cone_002
+    100006: Cylinder
+    100008: Cylinder_001
+    100010: Cylinder_002
+    100012: Icosphere
+    100014: Sphere
+    100016: Sphere_001
+    100018: Spiral_000
+    100020: //RootNode
+    100022: Torus
+    100024: Torus_001
+    100026: Cone_000
+    100028: Cone_001
+    100030: Cone_003
+    100032: Cone_004
+    100034: Empty
+    400000: BezierCurve
+    400002: BezierCurve_001
+    400004: Cone_002
+    400006: Cylinder
+    400008: Cylinder_001
+    400010: Cylinder_002
+    400012: Icosphere
+    400014: Sphere
+    400016: Sphere_001
+    400018: Spiral_000
+    400020: //RootNode
+    400022: Torus
+    400024: Torus_001
+    400026: Cone_000
+    400028: Cone_001
+    400030: Cone_003
+    400032: Cone_004
+    400034: Empty
+    2300000: BezierCurve
+    2300002: BezierCurve_001
+    2300004: Cone_002
+    2300006: Cylinder
+    2300008: Cylinder_001
+    2300010: Cylinder_002
+    2300012: Sphere
+    2300014: Sphere_001
+    2300016: Spiral_000
+    2300018: Torus
+    2300020: Torus_001
+    2300022: Cone_000
+    2300024: Cone_001
+    2300026: Cone_003
+    2300028: Cone_004
+    3300000: BezierCurve
+    3300002: BezierCurve_001
+    3300004: Cone_002
+    3300006: Cylinder
+    3300008: Cylinder_001
+    3300010: Cylinder_002
+    3300012: Sphere
+    3300014: Sphere_001
+    3300016: Spiral_000
+    3300018: Torus
+    3300020: Torus_001
+    3300022: Cone_000
+    3300024: Cone_001
+    3300026: Cone_003
+    3300028: Cone_004
+    4300000: Spiral_000
+    4300002: Torus
+    4300004: Icosphere
+    4300006: Cylinder_002
+    4300008: BezierCurve
+    4300010: Sphere
+    4300012: Cylinder_001
+    4300014: Cylinder
+    4300016: Sphere_001
+    4300018: BezierCurve_001
+    4300020: Cone_002
+    4300022: Torus_001
+    4300024: Cone_004
+    4300026: Cone_003
+    4300028: Cone_001
+    4300030: Cone_000
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Icosphere
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: NewEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BezierCurve
+        weight: 1
+      - path: BezierCurve_001
+        weight: 1
+      - path: Cone_002
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Cylinder_001
+        weight: 1
+      - path: Cylinder_002
+        weight: 1
+      - path: Empty
+        weight: 1
+      - path: Empty/Cone_000
+        weight: 1
+      - path: Empty/Cone_001
+        weight: 1
+      - path: Empty/Cone_003
+        weight: 1
+      - path: Empty/Cone_004
+        weight: 1
+      - path: Icosphere
+        weight: 1
+      - path: Sphere
+        weight: 1
+      - path: Sphere_001
+        weight: 1
+      - path: Spiral_000
+        weight: 1
+      - path: Torus
+        weight: 1
+      - path: Torus_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
