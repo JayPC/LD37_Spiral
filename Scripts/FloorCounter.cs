@@ -110,6 +110,13 @@ public class FloorCounter : MonoBehaviour {
 		if(renderer != null){
 			renderer.enabled = state;
 		}
+		if(this.GetComponent<SkinnedMeshRenderer>() != null){
+			this.GetComponent<SkinnedMeshRenderer>().enabled = state;
+		}
+
+		if(this.GetComponent<Light>() != null){
+			this.GetComponent<Light>().enabled = state;
+		}
 	}
 
 	public void setKinematic(bool state){

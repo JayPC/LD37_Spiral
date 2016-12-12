@@ -16,6 +16,15 @@ ModelImporter:
     100016: Cube_008
     100018: Cube_009
     100020: //RootNode
+    100022: back_cover
+    100024: page1
+    100026: page2
+    100028: page3
+    100030: page4
+    100032: page5
+    100034: page6
+    100036: side
+    100038: top
     400000: Cube_000
     400002: Cube_001
     400004: Cube_002
@@ -27,6 +36,15 @@ ModelImporter:
     400016: Cube_008
     400018: Cube_009
     400020: //RootNode
+    400022: back_cover
+    400024: page1
+    400026: page2
+    400028: page3
+    400030: page4
+    400032: page5
+    400034: page6
+    400036: side
+    400038: top
     2300000: Cube_000
     2300002: Cube_001
     2300004: Cube_002
@@ -37,6 +55,15 @@ ModelImporter:
     2300014: Cube_007
     2300016: Cube_008
     2300018: Cube_009
+    2300020: back_cover
+    2300022: page1
+    2300024: page2
+    2300026: page3
+    2300028: page4
+    2300030: page5
+    2300032: page6
+    2300034: side
+    2300036: top
     3300000: Cube_000
     3300002: Cube_001
     3300004: Cube_002
@@ -47,6 +74,15 @@ ModelImporter:
     3300014: Cube_007
     3300016: Cube_008
     3300018: Cube_009
+    3300020: back_cover
+    3300022: page1
+    3300024: page2
+    3300026: page3
+    3300028: page4
+    3300030: page5
+    3300032: page6
+    3300034: side
+    3300036: top
     4300000: Cube_009
     4300002: Cube_008
     4300004: Cube_007
@@ -57,6 +93,15 @@ ModelImporter:
     4300014: Cube_003
     4300016: Cube_002
     4300018: Cube_001
+    4300020: page6
+    4300022: page5
+    4300024: page4
+    4300026: page3
+    4300028: page2
+    4300030: page1
+    4300032: side
+    4300034: back_cover
+    4300036: top
     7400000: Default Take
     9500000: //RootNode
   materials:

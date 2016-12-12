@@ -9,6 +9,7 @@ public class CodeInput : MonoBehaviour {
 	public bool correctPassword;
 	public GameObject FloatingText;
 	public GameObject nextKeypad;
+	public GameObject crystalCaseRef;
 	public bool isFinalCode;
 	public bool audioPlayed;
 	public string audioClipToPlay;
@@ -42,6 +43,7 @@ public class CodeInput : MonoBehaviour {
 		}
 		if(isFinalCode && !audioPlayed && CheckWinState.puzzlePieces[puzzleName] == true){
 			Narator.playAudio(audioClipToPlay);
+			crystalCaseRef.SendMessage("OpenCase", SendMessageOptions.DontRequireReceiver);
 			audioPlayed = true;
 		}
 	}
