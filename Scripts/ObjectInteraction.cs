@@ -40,7 +40,8 @@ public class ObjectInteraction : MonoBehaviour {
 					for(var i=0;i<=hits.Length-1;i++){
 						if(hits[i].transform.tag == "PuzzlePiece" || hits[i].transform.tag == "Carryable"){
 							//Debug.Log("Name: " + hits[i].transform.name);
-							if(hits[i].transform.gameObject.GetComponent<MeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<MeshRenderer>().enabled == true){
+							if((hits[i].transform.gameObject.GetComponent<MeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<MeshRenderer>().enabled == true) ||
+								(hits[i].transform.gameObject.GetComponent<SkinnedMeshRenderer>() != null && hits[i].transform.gameObject.GetComponent<SkinnedMeshRenderer>().enabled == true)){
 								caryObject = hits[i].transform.gameObject;
 							}
 						}
