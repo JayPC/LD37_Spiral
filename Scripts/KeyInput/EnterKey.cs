@@ -17,13 +17,14 @@ public class EnterKey : MonoBehaviour {
 	}
 
 	public void KeyPressed(){
-		Debug.Log("Key On Keyboard  Pressed");
-		if(isDeleteKey){
-			keyEntryReference.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
-		} else if(isResetKey){
-			keyEntryReference.SendMessage("ResetPassword", SendMessageOptions.DontRequireReceiver);
-		} else {
-			keyEntryReference.SendMessage("KeyInput", keyValue, SendMessageOptions.DontRequireReceiver);
+		if(PlanetHologramController.isHologramActive){
+			if(isDeleteKey){
+				keyEntryReference.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
+			} else if(isResetKey){
+				keyEntryReference.SendMessage("ResetPassword", SendMessageOptions.DontRequireReceiver);
+			} else {
+				keyEntryReference.SendMessage("KeyInput", keyValue, SendMessageOptions.DontRequireReceiver);
+			}
 		}
 	}
 }

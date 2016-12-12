@@ -28,10 +28,10 @@ public class CodeInput : MonoBehaviour {
 		}
 
 		if(FloatingText != null){
-			Debug.Log("NotNull");
+			//Debug.Log("NotNull");
 			TextMesh t = FloatingText.GetComponent<TextMesh>();
 			if(t != null){
-				Debug.Log("SettingStuff");
+				//Debug.Log("SettingStuff");
 				t.text = currentPassword;
 			}
 		}
