@@ -21,9 +21,9 @@ public class CheckWinState : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		partCountDisplay = partCount;
-		if(!Narator.isPlaying() && partCount >= 5){
+		if(!Narator.isPlaying() && partCount >= 5 && !playWinAudio){
 			Narator.playAudio("Dialogue/AllPiecesCompleted");
 			playWinAudio = true;
-		}
+		} 
 	}
 }
