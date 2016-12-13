@@ -18,4 +18,11 @@ public class Narator : MonoBehaviour {
 		AudioClip clip = Resources.Load<AudioClip>(file);
 		Narator.theSingleNarator.GetComponent<Narator>().audioSource.PlayOneShot(clip);
 	}
+
+	public static bool isPlaying(){
+		if(Narator.theSingleNarator.GetComponent<Narator>().audioSource != null){
+			return Narator.theSingleNarator.GetComponent<Narator>().audioSource.isPlaying;
+		}
+		return false;
+	}
 }

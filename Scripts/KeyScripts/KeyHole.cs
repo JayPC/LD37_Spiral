@@ -36,6 +36,7 @@ public class KeyHole : MonoBehaviour {
 					targetTrigger.SendMessage(message, SendMessageOptions.DontRequireReceiver);
 				}
 				Narator.playAudio(audioFileToPlay);
+				CheckWinState.partCount++;
 				triggered = true;
 			}
 		}

@@ -27,6 +27,7 @@ public class CodeInput : MonoBehaviour {
 			if(currentPassword == password){
 				//Display something to show you completed the puzzle
 				correctPassword = true;
+				CheckWinState.partCount++;
 				CheckWinState.puzzlePieces[puzzleName] = true;
 			} else if(currentPassword.Length > password.Length){
 				//error and redset
