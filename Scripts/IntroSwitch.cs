@@ -4,12 +4,14 @@ using System.Collections;
 public class IntroSwitch : MonoBehaviour {
 	public GameObject explosionPrefab;
 	public GameObject[] explosionLocations;
-
+	public GameObject animObject;
+	public Animator anim;
 	public float explostionDelay;
 	public bool startExplosion;
+	public bool startExplosionAnim;
 	// Use this for initialization
 	void Start () {
-	
+		anim = animObject.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +25,10 @@ public class IntroSwitch : MonoBehaviour {
 			IntroExplosion.StartExplosion();
 			startExplosion = false;
 		} else if(startExplosion){
+			if(!startExplosionAnim){
+				anim.SetTrigger("FlipSwitch");
+				startExplosionAnim = true;
+			}
 			explostionDelay-= Time.deltaTime;
 		}
 	}
