@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class CodeInput : MonoBehaviour {
+	public GameObject HoloDeviceReference;
 	public string puzzleName = "";
 	public string password = "";
 	public string currentPassword = "";
@@ -49,32 +50,38 @@ public class CodeInput : MonoBehaviour {
 	}
 
 	public void KeyInput(string input){
-		if(CheckWinState.puzzlePieces[puzzleName] == true){
-			if(nextKeypad != null){
-				nextKeypad.SendMessage("KeyInput", input, SendMessageOptions.DontRequireReceiver);
+		if(HoloDeviceReference.GetComponent<PlanetHologramController>().isActive){
+			if(CheckWinState.puzzlePieces[puzzleName] == true){
+				if(nextKeypad != null){
+					nextKeypad.SendMessage("KeyInput", input, SendMessageOptions.DontRequireReceiver);
+				}
+			} else {
+				currentPassword += input;
 			}
-		} else {
-			currentPassword += input;
 		}
 	}
 
 	public void PopKey(){
-		if(CheckWinState.puzzlePieces[puzzleName] == true){
-			if(nextKeypad != null){
-				nextKeypad.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
+		if(HoloDeviceReference.GetComponent<PlanetHologramController>().isActive){
+			if(CheckWinState.puzzlePieces[puzzleName] == true){
+				if(nextKeypad != null){
+					nextKeypad.SendMessage("PopKey", SendMessageOptions.DontRequireReceiver);
+				}
+			} else {
+				currentPassword = currentPassword.Substring(0, currentPassword.Length - 1);
 			}
-		} else {
-			currentPassword = currentPassword.Substring(0, currentPassword.Length - 1);
 		}
 	}
 
 	public void ResetPassword(){
-		if(CheckWinState.puzzlePieces[puzzleName] == true){
-			if(nextKeypad != null){
-				nextKeypad.SendMessage("ResetPassword", SendMessageOptions.DontRequireReceiver);
+		if(HoloDeviceReference.GetComponent<PlanetHologramController>().isActive){
+			if(CheckWinState.puzzlePieces[puzzleName] == true){
+				if(nextKeypad != null){
+					nextKeypad.SendMessage("ResetPassword", SendMessageOptions.DontRequireReceiver);
+				}
+			} else {
+				currentPassword = "";
 			}
-		} else {
-			currentPassword = "";
 		}
 	}
 }

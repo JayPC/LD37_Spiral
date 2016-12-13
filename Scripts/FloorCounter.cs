@@ -126,7 +126,7 @@ public class FloorCounter : MonoBehaviour {
 	}
 
 	public void setIsTrigger(bool state){
-		if(collider != null){
+		if(collider != null && collider.gameObject.GetComponent<MeshCollider>() == null){
 			collider.isTrigger = state;
 		}
 	}

@@ -3,13 +3,16 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class IntroExplosion : MonoBehaviour {
+	public GameObject telepoortPositionIntro;
+	public GameObject telepoortPositionEnding;
+
 	public Vector3 postExplosionSpawn;
 
 	public float fadeOutSpeed = 100;
 	public float fadeInSpeed = 50;
 
-	public bool fadeOut = false;
-	public float blackAlpha = 0;
+	public static bool fadeOut = false;
+	public float blackAlpha = 1;
 	public bool fadeIn = false;
 	public bool firstTime = true;
 
@@ -17,10 +20,31 @@ public class IntroExplosion : MonoBehaviour {
 	public GameObject blackUIImage;
 	public GameObject targetLookat;
 	public GameObject triggeredButton;
-
+	public bool isStarting = true;
+	public static bool skipOpening;
+	public float fadeInDelay = 10;
 	public float playerKnockback = 0;
+
+	public void Start(){
+		Narator.playAudio("Dialogue/OpeningDialogue");
+		blackUIImage.GetComponent<Image>().color = new Color(0.0f,0.0f,0.0f,blackAlpha);
+	}
+
 	public void Update(){
-		if(fadeOut){
+		if(IntroExplosion.skipOpening){
+			isStarting = false;
+		}
+		if(isStarting){
+			blackAlpha -= Time.deltaTime * 0.3f;
+			Color temp = blackUIImage.GetComponent<Image>().color;
+			temp.a=blackAlpha;
+			//Debug.LogWarning(blackAlpha);
+			blackUIImage.GetComponent<Image>().color = temp;
+		} if(isStarting && blackAlpha <= 0f){
+			isStarting = false;
+		}
+
+		if(IntroExplosion.fadeOut){
 			CharController.blockInput = true;
 			blackAlpha += Time.deltaTime  * 0.7f;
 			playerKnockback -= Time.deltaTime * 60;
@@ -38,13 +62,14 @@ public class IntroExplosion : MonoBehaviour {
 			blackUIImage.GetComponent<Image>().color = temp;
 		} 
 
-		if(fadeOut && blackAlpha >= 1.0f){
+		if(IntroExplosion.fadeOut && blackAlpha >= 1.0f){
 			Debug.Log("Faded out!");
-			triggeredButton.GetComponent<ButtonControls>().triggerExplosion = false;
+			//triggeredButton.GetComponent<ButtonControls>().triggerExplosion = false;
 			this.transform.rotation = Quaternion.identity;
-			this.transform.position = postExplosionSpawn;
+			this.transform.position = telepoortPositionIntro.transform.position;
+			Narator.playAudio("Dialogue/GarageWakeUp");
 			fadeIn = true;
-			fadeOut = false;
+			IntroExplosion.fadeOut = false;
 		}
 		if(fadeIn){
 			blackAlpha -= Time.deltaTime  * 0.3f;
@@ -65,10 +90,14 @@ public class IntroExplosion : MonoBehaviour {
 			//blackAlpha = 0;
 			fadeIn = false; 
 		}
+
 	}
-	public void StartExplosion(GameObject button){
+	public static void StartExplosion(){
 		//Black out
-		triggeredButton = button;
-		fadeOut = true;
+		IntroExplosion.fadeOut = true;
+	}
+
+	public static void SkipOpening(){
+		skipOpening = true;
 	}
 }
